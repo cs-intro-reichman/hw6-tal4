@@ -4,21 +4,28 @@ import java.awt.Color;
 public class Runigram {
 
 	public static void main(String[] args) {
-	    
+
+        Color[][] img1 = read("escher.ppm");
+        Color[][] img2 = read("eyes.ppm");
+		Color [][] blended = blend(img1, img2, 0.5);
+
+		setCanvas(blended);
+		display(blended);
+		
 		//// Hide / change / add to the testing code below, as needed.
 		
 		// Tests the reading and printing of an image:	
-		Color[][] tinypic = read("tinypic.ppm");
-		print(tinypic);
+		//Color[][] tinypic = read("tinypic.ppm");
+		//print(tinypic);
 
 		// Creates an image which will be the result of various 
 		// image processing operations:
-		Color[][] image;
+		//Color[][] image;
 
 		// Tests the horizontal flipping of an image:
-		image = scaled(tinypic, 3, 5);
-		System.out.println();
-		print(image);
+		//image = scaled(tinypic, 3, 5);
+		//System.out.println();
+		//print(image);
 		
 		//// Write here whatever code you need in order to test your work.
 		//// You can continue using the image array.
@@ -152,6 +159,7 @@ public class Runigram {
 	 * The two images must have the same dimensions.
 	 */
 	public static Color[][] blend(Color[][] image1, Color[][] image2, double alpha) {
+		image2 = scaled(image2, image1[0].length, image1.length);
 		Color[][] blended = new Color[image1.length][image1[0].length];
 		for(int i = 0; i < image1.length; i++) {
 			for(int j = 0; j < image1[i].length; j++) {
