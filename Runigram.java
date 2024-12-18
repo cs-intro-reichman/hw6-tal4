@@ -160,10 +160,6 @@ public class Runigram {
 	 * The two images must have the same dimensions.
 	 */
 	public static Color[][] blend(Color[][] image1, Color[][] image2, double alpha) {
-		if (alpha == 0) {
-			return image2;
-		}
-		image2 = scaled(image2, image1[0].length, image1.length);
 		Color[][] blended = new Color[image1.length][image1[0].length];
 		for(int i = 0; i < image1.length; i++) {
 			for(int j = 0; j < image1[i].length; j++) {
